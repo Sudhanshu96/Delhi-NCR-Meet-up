@@ -45,9 +45,13 @@ public class ListFragment extends Fragment {
         adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClicked(String data) {
-                Intent intent = new Intent(getContext(), DataDisplayActivity.class);
-                intent.putExtra(Constants.INTENT_EXTRA_KEY, data);
-                startActivity(intent);
+                if (getContext().getResources().getBoolean(R.bool.is_landscape)) {
+                    ((FragmentActivity)getActivity()).onClicked(data);
+                } else {
+                    Intent intent = new Intent(getContext(), DataDisplayActivity.class);
+                    intent.putExtra(Constants.INTENT_EXTRA_KEY, data);
+                    startActivity(intent);
+                }
             }
         });
 

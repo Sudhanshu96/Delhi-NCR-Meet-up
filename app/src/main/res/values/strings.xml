@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Delhi Meet up</string>
+
+    <string-array name="mock_data">
+        <item>Data item 1</item>
+        <item>Data item 2</item>
+        <item>Data item 3</item>
+        <item>Data item 4</item>
+        <item>Data item 5</item>
+        <item>Data item 6</item>
+        <item>Data item 7</item>
+        <item>Data item 8</item>
+        <item>Data item 9</item>
+        <item>Data item 10</item>
+        <item>Data item 11</item>
+        <item>Data item 12</item>
+        <item>Data item 13</item>
+        <item>Data item 14</item>
+        <item>Data item 15</item>
+        <item>Data item 16</item>
+        <item>Data item 17</item>
+        <item>Data item 18</item>
+        <item>Data item 19</item>
+        <item>Data item 20</item>
+    </string-array>
+</resources>

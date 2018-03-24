@@ -5,8 +5,9 @@ import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
-public class FragmentActivity extends AppCompatActivity {
+public class FragmentActivity extends AppCompatActivity implements onListItemClicked{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +23,11 @@ public class FragmentActivity extends AppCompatActivity {
                 .commit();
 
         // Note: Question to the audience- Why not used "add()" transaction here ?
+    }
+
+    @Override
+    public void onClicked(String data) {
+        TextView textView = findViewById(R.id.tv_data_display);
+        textView.setText(data);
     }
 }

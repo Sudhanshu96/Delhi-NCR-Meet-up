@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="developersudhanshu.com.delhimeetup.DetailsFragment">
+
+    <TextView
+        android:id="@+id/tv_data_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:padding="15dp"/>
+
+</FrameLayout>

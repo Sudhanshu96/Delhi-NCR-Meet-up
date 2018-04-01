@@ -23,6 +23,7 @@ public class ListFragment extends Fragment {
     RecyclerView listRecyclerView;
     List<String> list;
     RecyclerViewAdapter adapter;
+    private boolean isLandscape;
 
     public ListFragment(){
 
@@ -32,6 +33,11 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, null,false);
+
+        if(rootView.findViewById(R.id.detail_container) != null)
+            isLandscape = true;
+        else
+            isLandscape = false;
 
         listRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_list);
 
@@ -45,9 +51,22 @@ public class ListFragment extends Fragment {
         adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClicked(String data) {
-                Intent intent = new Intent(getContext(), DataDisplayActivity.class);
-                intent.putExtra(Constants.INTENT_EXTRA_KEY, data);
-                startActivity(intent);
+                if(isLandscape) {
+                    DetailsFragment detailsFragment = new DetailsFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Constants.INTENT_EXTRA_KEY, data);
+                    detailsFragment.setArguments(bundle);
+
+                    android.support.v4.app.FragmentManager manager = ListFragment.this.getActivity().getSupportFragmentManager();
+                    manager.beginTransaction()
+                            .replace(R.id.detail_container, detailsFragment)
+                            .commit();
+                }
+                else {
+                    Intent intent = new Intent(getContext(), DataDisplayActivity.class);
+                    intent.putExtra(Constants.INTENT_EXTRA_KEY, data);
+                    startActivity(intent);
+                }
             }
         });
 
